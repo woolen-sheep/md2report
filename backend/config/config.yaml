@@ -1,0 +1,9 @@
+highlight: true
+
+templates:
+  HUST:
+    reference: "HUST.docx"
+    pandoc_filters:
+      - "general.py"
+    docx_handlers:
+      - "HUST"

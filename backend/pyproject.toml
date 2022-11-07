@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "md2report"
+version = "0.1.0"
+description = "A tool converting MarkDown files to HUST docx report."
+authors = ["woolensheep <2460563632@qq.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+black = "^22.10.0"
+pyright = "^1.1.277"
+panflute = "^2.2.3"
+pydantic = "^1.10.2"
+configargparse = "^1.5.3"
+pydantic-argparse = "^0.6.1"
+python-docx = "^0.8.11"
+fastapi = {extras = ["all"], version = "^0.86.0"}
+celery = {extras = ["redis"], version = "^5.2.7"}
+redis = "^4.3.4"
+aiofiles = "^22.1.0"
+
+[tool.poetry.group.dev.dependencies]
+panflute = "^2.2.3"
+
+
+[[tool.poetry.source]]
+name = "tuna"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+secondary = false
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

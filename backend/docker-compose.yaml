@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  app:
+    build: .
+    ports:
+      - 8004:8000
+    command: uvicorn --host 0.0.0.0 main:app --workers 4
+    restart: always
+    volumes:
+      - /mnt/disk2/md2report/tmp:/tmp/md2report
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    depends_on:
+      - redis
+
+  worker:
+    build: .
+    command: celery -A main.celery worker --loglevel=info
+    restart: always
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    volumes:
+      - /mnt/disk2/md2report/tmp:/tmp/md2report
+    depends_on:
+      - app
+      - redis
+
+  redis:
+    image: redis:7.0.5-alpine3.16
+    restart: "always"
+    ports:
+      - 6378:6379
+    volumes:
+      - /mnt/disk2/md2report/data:/data
+    command: redis-server
