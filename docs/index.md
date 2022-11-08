@@ -15,7 +15,7 @@
 
 ### Web UI
 
-md2report提供了[Web UI](/), 无需安装即可使用。
+md2report提供了[Web UI](https://md2report.hust.online), 无需安装即可使用。
 
 ### CLI
 

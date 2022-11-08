@@ -11,11 +11,11 @@
 ## Quick Start
 
 虽然md2report使用的都是标准markdown语法，但是markdown标记到docx的样式映射可能与你的习惯不同。
-因此，请确保除了本小节内容以外，开始使用md2report之前先阅读文档中关于[语法](/)的部分。
+因此，请确保除了本小节内容以外，开始使用md2report之前先阅读文档中关于[语法](https://woolen-sheep.github.io/md2report/grammar/)的部分。
 
 ### Web UI
 
-md2report提供了[Web UI](/), 无需安装即可使用，~~但是暂时没有部署。~~
+md2report提供了[Web UI](https://md2report.hust.online), 无需安装即可使用。
 
 ### CLI
 
