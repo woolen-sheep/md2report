@@ -1,0 +1,12 @@
+site_name: md2report
+site_url: https://example.com/
+nav:
+    - 简介: introduction.md
+    - 语法: grammar.md
+    - WebUI: webui.md
+theme:
+  name: material
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences

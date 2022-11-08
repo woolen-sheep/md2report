@@ -91,6 +91,11 @@ docker compose ps
 
 由于依赖了pandoc，除了以上内容，pandoc原生支持的markdown语法也应该正常工作。
 
+## Compatibility
+
+目前仅在MS Office 2019上进行过测试，测试版本为`Microsoft® Word 2019MSO (版本 2210 Build 16.0.15726.20070) 64 位`，能够正常打开生成的文档。
+打开文档时若提示`是否更新文档中的这些域？`，请选择`是`。另存文件可以消除该提示。
+
 ## Helping Development
 
 在open issue之前请先阅读[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)。
