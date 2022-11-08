@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://example.com/introduction/">
+        <link rel="canonical" href="https://example.com/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.8">
     
     
       
-        <title>简介 - md2report</title>
+        <title>md2report</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.815d1a91.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.815d1a91.min.css">
         
       
       
@@ -39,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#md2report" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="md2report" class="md-header__button md-logo" aria-label="md2report" data-md-component="logo">
+    <a href="." title="md2report" class="md-header__button md-logo" aria-label="md2report" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              简介
+              md2report
             
           </span>
         </div>
@@ -176,7 +176,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="md2report" class="md-nav__button md-logo" aria-label="md2report" data-md-component="logo">
+    <a href="." title="md2report" class="md-nav__button md-logo" aria-label="md2report" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -205,21 +205,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="introduction/" class="md-nav__link">
         简介
       </a>
-      
     </li>
   
 
@@ -232,7 +222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../grammar/" class="md-nav__link">
+      <a href="grammar/" class="md-nav__link">
         语法
       </a>
     </li>
@@ -247,7 +237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../webui/" class="md-nav__link">
+      <a href="webui/" class="md-nav__link">
         WebUI
       </a>
     </li>
@@ -274,6 +264,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    Quick Start
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#web-ui" class="md-nav__link">
+    Web UI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-hosted-web-ui" class="md-nav__link">
+    Self-Hosted Web UI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibility" class="md-nav__link">
+    Compatibility
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helping-development" class="md-nav__link">
+    Helping Development
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -286,18 +339,94 @@
                 
                   
 
-  <a href="https://github.com/woolen-sheep/md2report/edit/master/docs/introduction.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/woolen-sheep/md2report/edit/master/docs/index.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="_1">简介</h1>
-<p>md2report是一个用于将Markdown文件转换为可以直接提交给学校的实验报告/大作业报告/期末小论文的工具。</p>
+<h1 id="md2report">md2report</h1>
+<p>一个用于将Markdown文件转换为可以直接提交给学校的实验报告/大作业报告/期末小论文的工具。</p>
 <p>如果你的院系/课程要求必须提交docx格式的报告，并且：
   - 你认为word/docx实在是太蠢了，并且习惯于使用markdown编辑文档，md2report能够大幅缩短你在报告格式、docx样式以及排版上花费的时间；
   - 你没有试过使用markdown，不妨尝试一下: <a href="https://www.markdownguide.org/">Markdown Guides</a>, <a href="https://markdown.com.cn/">Mardown 教程</a>；</p>
 <p>如果你的院系/课程允许提交pdf格式的报告，寻找一个好用的tex模板或许是一个更好的方案。但是考虑到学习成本以及使用难度，md2report仍然可以作为一个替代选项。</p>
+<h2 id="quick-start">Quick Start</h2>
+<p>虽然md2report使用的都是标准markdown语法，但是markdown标记到docx的样式映射可能与你的习惯不同。
+因此，请确保除了本小节内容以外，开始使用md2report之前先阅读文档中关于<a href="/grammar">语法</a>的部分。</p>
+<h3 id="web-ui">Web UI</h3>
+<p>md2report提供了<a href="/">Web UI</a>, 无需安装即可使用。</p>
+<h3 id="cli">CLI</h3>
+<p>md2report提供了CLI，如果想使用CLI，需要：</p>
+<ul>
+<li>python 3.10+</li>
+<li>poetry in PATH</li>
+<li>pandoc in PATH</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/woolen-sheep/md2report.git 
+<span class="nb">cd</span> backend
+poetry install
+poetry shell
+
+python md2report.py -h
+<span class="c1"># usage: md2report.py [-h] [-c CONFIG] [--highlight HIGHLIGHT] [-o OUTPUT] -i INPUT [-t TEMPLATE]</span>
+<span class="c1">#</span>
+<span class="c1"># options:</span>
+<span class="c1">#   -h, --help            show this help message and exit</span>
+<span class="c1">#   -c CONFIG, --config CONFIG</span>
+<span class="c1">#                         config file path</span>
+<span class="c1">#   --highlight HIGHLIGHT</span>
+<span class="c1">#                         enable highlight of code blocks</span>
+<span class="c1">#   -o OUTPUT, --output OUTPUT</span>
+<span class="c1">#                         output docx filename</span>
+<span class="c1">#   -i INPUT, --input INPUT</span>
+<span class="c1">#                         input markdown filename</span>
+<span class="c1">#   -t TEMPLATE, --template TEMPLATE</span>
+<span class="c1">#                         template to use</span>
+<span class="c1">#</span>
+<span class="c1"># Args that start with &#39;--&#39; (eg. --highlight) can also be set in a config file (specified via -c). Config file syntax allows:</span>
+<span class="c1"># key=value, flag=true, stuff=[a,b,c] (for details, see syntax at https://goo.gl/R74nmi). If an arg is specified in more than</span>
+<span class="c1"># one place, then commandline values override config file values which override defaults.</span>
+
+python md2report.py -i test/test_case/5.2数据结构实验报告.md
+
+<span class="c1"># see output.docx</span>
+</code></pre></div>
+<h3 id="self-hosted-web-ui">Self-Hosted Web UI</h3>
+<p>md2docx的Web UI也是开源的，你可以使用docker-compose部署。
+需要注意的是现在的<code>docker-compose.yaml</code>中挂载了绝对路径，使用之前请先修改。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> backend
+docker compose up --build -d
+docker compose ps
+</code></pre></div>
+<h2 id="features">Features</h2>
+<p>目前支持的特性如下：</p>
+<ul>
+<li>[x] Title and SubTitle</li>
+<li>[x] Abstract</li>
+<li>[x] Heading (H1 to H4)</li>
+<li>[x] Image Caption</li>
+<li>[x] Table</li>
+<li>[x] Table Caption</li>
+<li>[x] Code Highlight</li>
+<li>[x] Table of Content</li>
+<li>[x] Header and Footer</li>
+<li>[x] Page Numbering</li>
+<li>[ ] Skip numbering of TOC and Abstract</li>
+<li>[x] Template of Specific School</li>
+<li>[x] HUST<ul>
+<li>[x] School Logo</li>
+<li>[x] Student Infomation</li>
+</ul>
+</li>
+</ul>
+<p>由于依赖了pandoc，除了以上内容，pandoc原生支持的markdown语法也应该正常工作。</p>
+<h2 id="compatibility">Compatibility</h2>
+<p>目前仅在MS Office 2019上进行过测试，测试版本为<code>Microsoft® Word 2019MSO (版本 2210 Build 16.0.15726.20070) 64 位</code>，能够正常打开生成的文档。
+打开文档时若提示<code>是否更新文档中的这些域？</code>，请选择<code>是</code>。另存文件可以消除该提示。</p>
+<h2 id="helping-development">Helping Development</h2>
+<p>在open issue之前请先阅读<a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md">提问的智慧</a>。</p>
+<p>我不确定是否只有我所在的学校存在报告过多的现象，或者这是一个普遍的现象。如果你有同样的困扰，可以开PR来补充你们学校的template。</p>
 
 
 
@@ -313,27 +442,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-      
-        
-        <a href="../grammar/" class="md-footer__link md-footer__link--next" aria-label="Next: 语法" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              语法
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -356,10 +464,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      <script src="assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
     
   </body>
