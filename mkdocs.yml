@@ -1,5 +1,6 @@
 site_name: md2report
 site_url: https://example.com/
+repo_url: https://github.com/woolen-sheep/md2report
 nav:
     - 简介: introduction.md
     - 语法: grammar.md
