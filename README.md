@@ -8,6 +8,10 @@
 
 如果你的院系/课程允许提交pdf格式的报告，寻找一个好用的tex模板或许是一个更好的方案。但是考虑到学习成本以及使用难度，md2report仍然可以作为一个替代选项。
 
+[预览更多](https://woolen-sheep.github.io/md2report/preview/)
+
+![Preview](docs/img/front_page.png)
+
 ## Quick Start
 
 虽然md2report使用的都是标准markdown语法，但是markdown标记到docx的样式映射可能与你的习惯不同。
