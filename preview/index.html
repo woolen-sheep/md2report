@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://example.com/grammar/">
+        <link rel="canonical" href="https://example.com/preview/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.8">
     
     
       
-        <title>语法 - md2report</title>
+        <title>效果预览 - md2report</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              语法
+              效果预览
             
           </span>
         </div>
@@ -220,21 +220,6 @@
 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../preview/" class="md-nav__link">
-        效果预览
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -247,12 +232,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          语法
+          效果预览
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        语法
+        效果预览
       </a>
       
         
@@ -272,7 +257,7 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    标题与副标题
+    标题页
   </a>
   
 </li>
@@ -286,21 +271,35 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    章节标题
+    目录
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    图注
+    节标题与自动编号
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    表标题
+    表格
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    图片
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    代码
   </a>
   
 </li>
@@ -309,6 +308,21 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grammar/" class="md-nav__link">
+        语法
+      </a>
     </li>
   
 
@@ -356,7 +370,7 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    标题与副标题
+    标题页
   </a>
   
 </li>
@@ -370,21 +384,35 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    章节标题
+    目录
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    图注
+    节标题与自动编号
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    表标题
+    表格
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    图片
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    代码
   </a>
   
 </li>
@@ -403,74 +431,32 @@
                 
                   
 
-  <a href="https://github.com/woolen-sheep/md2report/edit/master/docs/grammar.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/woolen-sheep/md2report/edit/master/docs/preview.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="_1">语法与特性</h1>
-<p>md2report使用的都是标准markdown语法，但是markdown标记到docx的样式映射可能与你的习惯不同。
-按照推荐的方式使用markdown标记能生成更加规范的报告。</p>
-<h2 id="_2">标题与副标题</h2>
-<p>大部分人在写markdown时习惯于将<code>H1</code>(<code>#</code>)作为主标题，但在md2report中，应使用<code>metadata</code>来指定标题。
-H1在md2report中为一级节标题。</p>
-<p>应该这样：</p>
-<div class="highlight"><pre><span></span><code>---
-title: 数据结构实验报告
-<span class="gu">subtitle: 哈夫曼编/译码器</span>
-<span class="gu">---</span>
-
-<span class="gh"># （第一节标题）</span>
-</code></pre></div>
-<p>而不是这样：
-<div class="highlight"><pre><span></span><code><span class="gh"># 数据结构实验报告</span>
-
-<span class="gu">##（第一节标题）</span>
-</code></pre></div></p>
-<p>第二种写法会导致章节编号错位。</p>
+<h1 id="_1">效果预览</h1>
+<h2 id="_2">标题页</h2>
+<p><img alt="标题页" src="../img/front_page.png" /></p>
 <h2 id="_3">摘要</h2>
-<p>你可以通过添加metadata的方式为你的文档添加摘要：</p>
-<div class="highlight"><pre><span></span><code>---
-title: 数据结构实验报告
-subtitle: 实验二-哈夫曼编/译码器
-abstract_zh: 中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要
-<span class="gu">abstract_en: English Abstract English Abstract English Abstract English Abstract English Abstract English Abstract English Abstract English Abstract English Abstract</span>
-<span class="gu">---</span>
-
-<span class="gh"># 第一节标题</span>
-</code></pre></div>
-<h2 id="_4">章节标题</h2>
-<p>md2report支持markdown heading (H1-H9)的识别，并支持H1-H4的自动编号。因此在编写报告时请不要手动加入文本编号。</p>
-<p>应该这样：</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># Heading text</span>
-
-<span class="gu">## Heading text</span>
-</code></pre></div>
-<p>而不是这样：</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># 1. Heading text</span>
-
-<span class="gu">## 1.1 Heading text</span>
-</code></pre></div>
-<h2 id="_5">图注</h2>
-<p>md2report会将所有的图片标题转换为图片图注，并且添加支持引用的图片编号。因此请不要留空图片标题。</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">解码</span>](<span class="na">Decoding.png</span>)
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>虽然<code>backend/test</code>中的测试文件使用了中文文件名，但是在使用md2report的时候请尽量避免使用中文文件名，防止因为编码问题引起的转换失败。如果你遇到了这种情况，请放心提交issue。</p>
+<p><img alt="中文摘要" src="../img/abstract_zh.png" /></p>
+<p><img alt="image-20221109113340062" src="../img/abstract_en.png" /></p>
+<h2 id="_4">目录</h2>
+<p><img alt="目录" src="../img/TOC.png" /></p>
+<h2 id="_5">节标题与自动编号</h2>
+<p><img alt="节标题与自动编号" src="../img/Headings.png" /></p>
+<h2 id="_6">表格</h2>
+<p><img alt="表格" src="../img/table.png" /></p>
+<h2 id="_7">图片</h2>
+<p><img alt="图片" src="../img/figure.png" /></p>
+<h2 id="_8">代码</h2>
+<p><img alt="代码" src="../img/code.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>根据设置的选项，也可以生成不带有代码高亮的代码块。</p>
 </div>
-<h2 id="_6">表标题</h2>
-<p>虽然markdown并不支持表标题，但是你可以添加能被md2report识别的注解信息作为表标题：</p>
-<div class="highlight"><pre><span></span><code><span class="gh">#table 转义序列表</span>
-
-| <span class="gs">**字符**</span> | <span class="gs">**转义序列**</span> | <span class="gs">**描述**</span>      |
-| -------- | ------------ | ------------- |
-| <span class="sb">`\x0A`</span>   | <span class="sb">`\n`</span>         | 换行符（LF）  |
-| <span class="sb">`\x20`</span>   | <span class="sb">`\b`</span>         | 半角空格      |
-| <span class="sb">`\x09`</span>   | <span class="sb">`\t`</span>         | 制表符（Tab） |
-</code></pre></div>
-<p>同样的，md2report也会为表格添加支持引用的表格编号。</p>
 
 
 
@@ -491,7 +477,7 @@ abstract_zh: 中文摘要中文摘要中文摘要中文摘要中文摘要中文�
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../preview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 效果预览" rel="prev">
+        <a href="../introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 简介" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -500,20 +486,20 @@ abstract_zh: 中文摘要中文摘要中文摘要中文摘要中文摘要中文�
               <span class="md-footer__direction">
                 Previous
               </span>
-              效果预览
+              简介
             </div>
           </div>
         </a>
       
       
         
-        <a href="../webui/" class="md-footer__link md-footer__link--next" aria-label="Next: WebUI" rel="next">
+        <a href="../grammar/" class="md-footer__link md-footer__link--next" aria-label="Next: 语法" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              WebUI
+              语法
             </div>
           </div>
           <div class="md-footer__button md-icon">
