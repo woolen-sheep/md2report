@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://example.com/introduction/">
+        <link rel="canonical" href="https://example.com/contribute/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.8">
     
     
       
-        <title>简介 - md2report</title>
+        <title>帮助开发 - md2report</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              简介
+              帮助开发
             
           </span>
         </div>
@@ -205,21 +205,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
         简介
       </a>
-      
     </li>
   
 
@@ -275,11 +265,120 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../contribute/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          帮助开发
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         帮助开发
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    工作原理
+  </a>
+  
+    <nav class="md-nav" aria-label="工作原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtersgeneralpy" class="md-nav__link">
+    filters/general.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    环境搭建
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    如何添加模板
+  </a>
+  
+    <nav class="md-nav" aria-label="如何添加模板">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-doc" class="md-nav__link">
+    新增reference doc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    新增filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docx-handler" class="md-nav__link">
+    新增docx handler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    修改config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    修改前端
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -304,6 +403,89 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    工作原理
+  </a>
+  
+    <nav class="md-nav" aria-label="工作原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtersgeneralpy" class="md-nav__link">
+    filters/general.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    环境搭建
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    如何添加模板
+  </a>
+  
+    <nav class="md-nav" aria-label="如何添加模板">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-doc" class="md-nav__link">
+    新增reference doc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    新增filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docx-handler" class="md-nav__link">
+    新增docx handler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    修改config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    修改前端
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -316,20 +498,55 @@
                 
                   
 
-  <a href="https://github.com/woolen-sheep/md2report/edit/master/docs/introduction.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/woolen-sheep/md2report/edit/master/docs/contribute.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="_1">简介</h1>
-<p>md2report是一个用于将Markdown文件转换为可以直接提交给学校的实验报告/大作业报告/期末小论文的工具。</p>
-<p>如果你的院系/课程要求必须提交docx格式的报告，并且：</p>
+<h1 id="_1">帮助开发</h1>
+<h2 id="_2">工作原理</h2>
+<p>md2report 大体上是一个 pandoc filter ，对 pandoc 生成的 Json AST 做了一些修改，使之符合大学报告的要求。对于有些无法在 AST 中实现的修改，则使用 python-docx 修改最后生成的 docx 文件。</p>
 <ul>
-<li>你认为word/docx实在是太蠢了，并且习惯于使用markdown编辑文档，md2report能够大幅缩短你在报告格式、docx样式以及排版上花费的时间；</li>
-<li>你没有试过使用markdown，不妨尝试一下: <a href="https://www.markdownguide.org/">Markdown Guides</a>, <a href="https://markdown.com.cn/">Mardown 教程</a>；</li>
+<li>pandoc filters 位于 <code>backend/filters</code> , 称其为filters。</li>
+<li>调用pandoc时会使用 <code>--reference-doc</code> 参数指定模板，模板位于 <code>backend/reference-docs</code>。</li>
+<li>pandoc生成出docx文件后，会调用 <code>python-docx</code> 对其进行修改, 代码位于 <code>backend/docx_han</code>。</li>
 </ul>
-<p>如果你的院系/课程允许提交pdf格式的报告，寻找一个好用的tex模板或许是一个更好的方案。但是考虑到学习成本以及使用难度，md2report仍然可以作为一个替代选项。</p>
+<h3 id="filtersgeneralpy"><code>filters/general.py</code></h3>
+<p>此文件的定位是一个通用filter，负责添加摘要、添加图注、添加表格标题等。一般来说可以直接使用这个filter。</p>
+<h2 id="_3">环境搭建</h2>
+<p>使用poetry管理开发环境。安装poetry后：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> backend
+poetry install
+poetry shell
+
+which python
+<span class="c1"># should output a venv python</span>
+
+python md2report.py -h
+</code></pre></div>
+<h2 id="_4">如何添加模板</h2>
+<p>开始添加模板之前，建议先了解：</p>
+<ul>
+<li><a href="https://pandoc.org/filters.html">pandoc filter</a></li>
+<li><a href="https://pandoc.org/MANUAL.html">pandoc 文档</a> 中的 <code>--reference-doc</code> 参数</li>
+<li><a href="http://scorreia.com/software/panflute/">panflute 文档</a></li>
+<li><a href="https://python-docx.readthedocs.io/en/latest/">python-docx 文档</a></li>
+</ul>
+<h3 id="reference-doc">新增reference doc</h3>
+<p>复制一份HUST.docx，修改为你需要的名称，然后编辑其中你需要修改的样式（比如正文样式，标题样式，页眉页脚等）。</p>
+<h3 id="filter">新增filter</h3>
+<p>大部分情况下，可以直接使用general.py。如果你真的有需要，可以把新增的filter置于 <code>backend/filters</code> 下。</p>
+<h3 id="docx-handler">新增docx handler</h3>
+<p>可以参考 <code>hust.py</code>, 在这一部分可以完成你们学校的一些定制化的设定，比如学校的logo。</p>
+<h3 id="config">修改config</h3>
+<p>编辑 <code>backend/config/config.yaml</code>, 参考现有配置增加一个新的配置，并且指定你添加的filter和handler</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>filter和handler可以不止有一个，config中指定的是一个列表，将会被按顺序调用。</p>
+</div>
+<h3 id="_5">修改前端</h3>
+<p>如果需要，将你的配置名称添加到前端的select列表里。</p>
 
 
 
@@ -349,21 +566,21 @@
     
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
-      
         
-        <a href="../preview/" class="md-footer__link md-footer__link--next" aria-label="Next: 效果预览" rel="next">
+        <a href="../webui/" class="md-footer__link md-footer__link--prev" aria-label="Previous: WebUI" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
-                Next
+                Previous
               </span>
-              效果预览
+              WebUI
             </div>
           </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
         </a>
+      
       
     </nav>
   

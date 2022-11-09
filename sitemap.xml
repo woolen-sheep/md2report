@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://example.com/contribute/</loc>
+         <lastmod>2022-11-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://example.com/grammar/</loc>
          <lastmod>2022-11-09</lastmod>
          <changefreq>daily</changefreq>
