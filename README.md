@@ -51,6 +51,10 @@ python md2report.py -h
 #                         input markdown filename
 #   -t TEMPLATE, --template TEMPLATE
 #                         template to use
+#   --indent-font-size INDENT_FONT_SIZE
+#                         first line indent font size in pt
+#   --indent-font-num INDENT_FONT_NUM
+#                         first line indent num
 #
 # Args that start with '--' (eg. --highlight) can also be set in a config file (specified via -c). Config file syntax allows:
 # key=value, flag=true, stuff=[a,b,c] (for details, see syntax at https://goo.gl/R74nmi). If an arg is specified in more than
@@ -113,6 +117,7 @@ docker compose ps
 - [x] Code Highlight
 - [x] Table of Content
 - [x] Header and Footer
+- [x] First line indent
 - [x] Page Numbering
   - [ ] Skip numbering of TOC and Abstract
 - [x] Template of Specific School
@@ -121,6 +126,8 @@ docker compose ps
     - [x] Student Infomation
 
 由于依赖了pandoc，除了以上内容，pandoc原生支持的markdown语法也应该正常工作。
+
+段落首行缩进，只作用于正文（Body Text）和First Paragraph两种样式。一个字符宽度为INDENT_FONT_SIZE pt，默认为12 pt（12pt为中文小四号字，10.5pt为中文五号字），缩进INDENT_FONT_NUM个字符，默认两个字符。如果不想要首行缩进，可以指定INDENT_FONT_NUM为0。
 
 ## Compatibility
 

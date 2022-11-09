@@ -6,6 +6,7 @@ import configargparse
 import pathlib
 import os
 from docx_handler import handler_map
+from docx_handler.utils import insert_indent
 
 
 class Metadata(BaseModel):
@@ -86,6 +87,9 @@ def convert_md_to_docx(conf: Config):
         handler_map[h](str(output_path.absolute()))
 
     os.remove(input_file)
+
+    insert_indent(str(output_path.absolute()), conf.indent_font_size, conf.indent_font_num)
+
     return str(output_path.absolute())
 
 
@@ -115,6 +119,18 @@ if __name__ == "__main__":
     p.add_argument("-i", "--input", required=True, help="input markdown filename")
     p.add_argument(
         "-t", "--template", default="HUST", required=False, help="template to use"
+    )
+    p.add_argument(
+        "--indent-font-size",
+        default=12.0,
+        required=False,
+        help="first line indent font size in pt"
+    )
+    p.add_argument(
+        "--indent-font-num",
+        default=2,
+        required=False,
+        help="first line indent num"
     )
 
     args = p.parse_args()

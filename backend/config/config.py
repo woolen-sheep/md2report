@@ -27,6 +27,8 @@ class Config(BaseModel):
     input: str = Field(description="Input filename.")
     template: str = Field(default="HUST", description="Template config name.")
     templates: Dict[str, TemplateConfig] = {}
+    indent_font_size: float = Field(default=12.0, description="First line indent font size in pt.")
+    indent_font_num: int = Field(default=2, description="First line indent num.")
 
 class ServerConfig(BaseModel):
     cache_path:str = "/tmp/md2report"
