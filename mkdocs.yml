@@ -6,6 +6,7 @@ nav:
     - 效果预览: preview.md
     - 语法: grammar.md
     - WebUI: webui.md
+    - 帮助开发: contribute.md
 theme:
   name: material
 markdown_extensions:
