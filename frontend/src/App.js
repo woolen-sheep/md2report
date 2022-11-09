@@ -67,7 +67,7 @@ function App () {
       <header>
         <div className="navbar bg-primary text-primary-content">
           <div className="flex-1">
-            <a href="/" className="btn btn-ghost normal-case text-2xl">md2docx</a>
+            <a href="/" className="btn btn-ghost normal-case text-2xl">md2report</a>
           </div>
           <div className="flex-none">
             <div className="tooltip tooltip-bottom" data-tip="Github">
