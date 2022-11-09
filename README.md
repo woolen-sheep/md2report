@@ -28,7 +28,7 @@ md2report提供了CLI，如果想使用CLI，需要：
 - python 3.10+
 - poetry in PATH
 - pandoc in PATH
-
+- [Git LFS](https://git-lfs.github.com/) installed
 
 ```bash 
 git clone https://github.com/woolen-sheep/md2report.git 
@@ -60,6 +60,33 @@ python md2report.py -i test/test_case/5.2数据结构实验报告.md
 
 # see output.docx
 
+```
+
+### Docker
+
+```bash
+docker run --name md2report -d woolensheep/md2report:latest
+```
+
+此docker为 `backend/Dockerfile` build 产物，无法作为完整的前后端使用。但是你可以进入其中运行CLI而无需搭建环境：
+
+```bash
+➜  no-more-docx-report git:(master) ✗ docker exec -it md2report bash
+root@f35bd61ef8bc:/app# python md2report.py -h
+usage: md2report.py [-h] [-c CONFIG] [--highlight HIGHLIGHT] [-o OUTPUT] -i INPUT [-t TEMPLATE]
+
+options:
+  -h, --help            show this help message and exit
+  -c CONFIG, --config CONFIG
+                        config file path
+  --highlight HIGHLIGHT
+                        enable highlight of code blocks
+  -o OUTPUT, --output OUTPUT
+                        output docx filename
+  -i INPUT, --input INPUT
+                        input markdown filename
+  -t TEMPLATE, --template TEMPLATE
+                        template to use
 ```
 
 ### Self-Hosted Web UI
