@@ -6,4 +6,8 @@ templates:
     pandoc_filters:
       - "general.py"
     docx_handlers:
-      - "HUST"
+      HUST: {}
+      first_line_indent:
+        indent_size: 24
+
+
