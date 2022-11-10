@@ -51,10 +51,12 @@ python md2report.py -h
 #                         input markdown filename
 #   -t TEMPLATE, --template TEMPLATE
 #                         template to use
-#
-# Args that start with '--' (eg. --highlight) can also be set in a config file (specified via -c). Config file syntax allows:
-# key=value, flag=true, stuff=[a,b,c] (for details, see syntax at https://goo.gl/R74nmi). If an arg is specified in more than
-# one place, then commandline values override config file values which override defaults.
+#   --indent-font-size INDENT_FONT_SIZE
+#                         first line indent font size in pt
+#   --indent-font-num INDENT_FONT_NUM
+#                         first line indent num
+#   --first_line_indent FIRST_LINE_INDENT
+                        enable the first line indent
 
 python md2report.py -i test/test_case/5.2数据结构实验报告.md
 
@@ -87,6 +89,8 @@ options:
                         input markdown filename
   -t TEMPLATE, --template TEMPLATE
                         template to use
+  --first_line_indent FIRST_LINE_INDENT
+                        enable the first line indent
 ```
 
 ### Self-Hosted Web UI
@@ -113,6 +117,7 @@ docker compose ps
 - [x] Code Highlight
 - [x] Table of Content
 - [x] Header and Footer
+- [x] First line indent
 - [x] Page Numbering
   - [ ] Skip numbering of TOC and Abstract
 - [x] Template of Specific School

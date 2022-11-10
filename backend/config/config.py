@@ -14,7 +14,7 @@ class ConfigParseFailed(Exception):
 
 class TemplateConfig(BaseModel):
     pandoc_filters: List[str] = []
-    docx_handlers: List[str] = []
+    docx_handlers: Dict[str, Dict] = {}
     reference: str = ""
 
 
@@ -27,9 +27,13 @@ class Config(BaseModel):
     input: str = Field(description="Input filename.")
     template: str = Field(default="HUST", description="Template config name.")
     templates: Dict[str, TemplateConfig] = {}
+    first_line_indent: bool = Field(
+        default=True, description="Enable the first line indent"
+    )
+
 
 class ServerConfig(BaseModel):
-    cache_path:str = "/tmp/md2report"
+    cache_path: str = "/tmp/md2report"
 
 
 def load_config(args: Dict, filename: str = "config/config.yaml"):
@@ -41,6 +45,7 @@ def load_config(args: Dict, filename: str = "config/config.yaml"):
     except Exception as e:
         raise ConfigLoadFailed
 
+
 def load_server_config(filename: str = "config/server_config.yaml"):
     try:
         with open(filename) as stream:
@@ -49,5 +54,6 @@ def load_server_config(filename: str = "config/server_config.yaml"):
     except Exception as e:
         logging.error("load server onfig failed")
         raise ConfigLoadFailed
+
 
 server_config = load_server_config()

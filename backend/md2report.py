@@ -82,10 +82,16 @@ def convert_md_to_docx(conf: Config):
     command.extend(["-o", str(output_path.absolute())])
     subprocess.run(command, cwd=input_path)
 
-    for h in conf.templates[conf.template].docx_handlers:
-        handler_map[h](str(output_path.absolute()))
+    # calling handlers one by one
+    for handler_name, params in conf.templates[conf.template].docx_handlers.items():
+        # if a handler is set to `False` in config, then skip it
+        enabled = conf.dict().get(handler_name, True)
+        if not enabled:
+            continue
+        handler_map[handler_name](str(output_path.absolute()), **params)
 
     os.remove(input_file)
+
     return str(output_path.absolute())
 
 
@@ -115,6 +121,12 @@ if __name__ == "__main__":
     p.add_argument("-i", "--input", required=True, help="input markdown filename")
     p.add_argument(
         "-t", "--template", default="HUST", required=False, help="template to use"
+    )
+    p.add_argument(
+        "--first_line_indent",
+        default=True,
+        required=False,
+        help="enable the first line indent",
     )
 
     args = p.parse_args()
