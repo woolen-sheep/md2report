@@ -132,8 +132,17 @@ docker compose ps
 目前仅在MS Office 2019上进行过测试，测试版本为`Microsoft® Word 2019MSO (版本 2210 Build 16.0.15726.20070) 64 位`，能够正常打开生成的文档。
 打开文档时若提示`是否更新文档中的这些域？`，请选择`是`。另存文件可以消除该提示。
 
+- 使用LibreOffice的用户打开生成的文档后，需要手动更新目录。
+- 若使用其它Word编辑器的用户打开后发现目录为空，也可尝试手动更新目录。
+
 ## Contribute
 
 在open issue之前请先阅读[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)。
 
-我不确定是否只有我所在的学校存在报告过多的现象，或者这是一个普遍的现象。如果你有同样的困扰，可以开PR来补充你们学校的template。
+在报告bug时应提供：
+
+- bug现象
+- Office版本
+- 可供复现的输入文件
+
+我不确定是否只有我所在的学校存在报告过多的现象，或者这是一个普遍的现象。如果你有同样的困扰，可以开PR来补充你们学校的template。贡献方式详见 [帮助开发](https://woolen-sheep.github.io/md2report/contribute/)
