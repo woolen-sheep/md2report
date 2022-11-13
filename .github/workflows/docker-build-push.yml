@@ -9,6 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -
+        name: Checkout
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+      - run: git lfs pull
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       -
