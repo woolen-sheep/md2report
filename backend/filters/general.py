@@ -1,9 +1,19 @@
-from templates.templates import DocxTemplates
-from typing import Optional, cast, List
+import os
+import subprocess
+from uuid import uuid4
+import xml.etree.ElementTree as ET
+from typing import Optional, Tuple, Union, cast, List
+from subprocess import Popen, PIPE
+
 import panflute as pf
+
+from templates.templates import DocxTemplates
 
 IMAGE_CAPITAL_TEMPLATE = "{} "
 
+# If the svg height is too large, part of the image will
+# be outside of A4 page. So limit it to 700px.
+MAX_SVG_HEIGHT = 700
 
 class Index:
     """
@@ -88,14 +98,14 @@ def append_abstract(elem, doc):
     """
     if type(elem) == pf.Str:
         res = [elem]
-        abstract_zh_str = doc.get_metadata("abstract_zh",None)
-        if abstract_zh_str :
+        abstract_zh_str = doc.get_metadata("abstract_zh", None)
+        if abstract_zh_str:
             abstract_zh = pf.RawInline(
                 DocxTemplates.ABSTRACT_ZH.format(content=abstract_zh_str),
                 format="openxml",
             )
             res.append(abstract_zh)
-        abstract_en_str = doc.get_metadata("abstract_en",None)
+        abstract_en_str = doc.get_metadata("abstract_en", None)
         if abstract_en_str != "":
             abstract_en = pf.RawInline(
                 DocxTemplates.ABSTRACT_EN.format(content=abstract_en_str),
@@ -105,6 +115,55 @@ def append_abstract(elem, doc):
 
         return res
 
+
+
+
+def get_svg_height(filename: str) -> int:
+    """
+    Get the height of svg file. If the height is greater then
+    `MAX_SVG_HEIGHT`, return `MAX_SVG_HEIGHT`;
+    """
+    tree = ET.parse(filename)
+    root = tree.getroot()
+    height = int(root.get("height")[:-2])
+    if height < MAX_SVG_HEIGHT:
+        return height
+    return int(MAX_SVG_HEIGHT)
+
+
+def insert_cxx2flow_svg(code_block: pf.CodeBlock, title:str)->Union[pf.Para,None]:
+    """
+    all cxx2flow and dot to get the svg flow chart. Then insert
+    it to the document.
+    """
+    if len(title)==0:
+        title="程序流程图"
+    elif title[0] == ":":
+        title = title[1:]
+    Index.image += 1
+    # call cxx2flow, which will output a dot file
+    p = Popen(["cxx2flow"], stdout=PIPE, stdin=PIPE, stderr=PIPE)
+    dot_data = p.communicate(input=code_block.text.encode("utf-8"))[0]
+    id = uuid4().hex
+    output_file = f"{id}.cxx2flow.svg"
+    # convert dot file to svg
+    p = Popen(
+        ["dot", "-Tsvg", "-o", output_file],
+        stdin=PIPE,
+        stderr=PIPE,
+    )
+    p.communicate(input=dot_data)
+    # limit svg's height
+    height = get_svg_height(output_file)
+    img = pf.Image(
+        pf.Str(title),
+        url=output_file,
+        title="fig:",
+        attributes={"height": f"{height}px"},
+    )
+    img.walk(add_image_capition)
+    if os.path.exists(output_file):
+        return pf.Para(img)
 
 def process_report(elem, doc):
     """
@@ -141,6 +200,11 @@ def process_report(elem, doc):
     elif type(elem) == pf.Header:
         header: pf.Header = cast(pf.Header, elem)
         Index.add(header.level)
+    elif type(elem) == pf.CodeBlock:
+        code_block: pf.CodeBlock = cast(pf.CodeBlock, elem)
+        lang = code_block.to_json()["c"][0][1]
+        if len(lang) == 1 and lang[0].startswith("cxx2flow"):
+            return insert_cxx2flow_svg(code_block=code_block,title=lang[0][8:])
 
 
 if __name__ == "__main__":

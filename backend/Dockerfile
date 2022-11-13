@@ -17,7 +17,10 @@ FROM python as runtime
 ENV PATH="/app/.venv/bin:$PATH"
 RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ sid main contrib non-free" > /etc/apt/sources.list &&\
        apt clean && apt update &&\
-       apt-get -y install pandoc
+       apt-get -y install pandoc wget graphviz &&\
+       wget https://github.com/Enter-tainer/cxx2flow/releases/download/v0.5.11/cxx2flow-linux-amd64 -O /bin/cxx2flow &&\
+       chmod +x /bin/cxx2flow
+
 COPY --from=poetry /app /app
 EXPOSE 8000
 CMD ["uvicorn","main:app","--workers","4"]
