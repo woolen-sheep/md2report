@@ -424,8 +424,8 @@
   </a>
 
 
-<h1 id="_1">语法与特性</h1>
-<p>md2report使用的都是标准markdown语法，但是markdown标记到docx的样式映射可能与你的习惯不同。
+<h1 id="_1">标准语法</h1>
+<p>md2report使用的大部分是标准markdown语法，但是markdown标记到docx的样式映射可能与你的习惯不同。
 按照推荐的方式使用markdown标记能生成更加规范的报告。</p>
 <h2 id="_2">标题与副标题</h2>
 <p>大部分人在写markdown时习惯于将<code>H1</code>(<code>#</code>)作为主标题，但在md2report中，应使用<code>metadata</code>来指定标题。
@@ -486,6 +486,64 @@ abstract_zh: 中文摘要中文摘要中文摘要中文摘要中文摘要中文�
 | <span class="sb">`\x09`</span>   | <span class="sb">`\t`</span>         | 制表符（Tab） |
 </code></pre></div>
 <p>同样的，md2report也会为表格添加支持引用的表格编号。</p>
+<h1 id="_7">追加特性</h1>
+<h2 id="cxx2flow">cxx2flow</h2>
+<p>md2report 集成了 <a href="https://github.com/Enter-tainer/cxx2flow">cxx2flow</a>，可以将c++代码转化为流程图。</p>
+<div class="highlight"><pre><span></span><code>```cxx2flow:流程图标题
+int main() {
+    // 初始化哈夫曼树
+    if (!FileExists(&quot;hfmTree.dat&quot;)) {
+        tree = InitHfmTree();
+    } else {
+        tree-&gt;init();
+    }
+
+    // 初始化编码/解码器
+    EnDecoder endecoder;
+    InitEnDecoder(&amp;endecoder, tree);
+
+    // 输出帮助信息
+    PrintHelpMsg();
+    File in, out;
+    while (TRUE) {
+        // 读取用户指令，根据指令调用指定功能
+        PrintLineHeader();
+        Cmd op;
+        ReadOp(&amp;op);
+        if (op == &#39;I&#39;) {
+            tree = InitHfmTree();
+        } else if (op == &#39;E&#39;) {
+            ProcCmd(&amp;in, &amp;out);
+            Encode(endecoder, in, out);
+        } else if (op == &#39;D&#39;) {
+            ProcCmd(&amp;in, &amp;out);
+            Decode(endecoder, in, out);
+        } else if (op == &#39;P&#39;) {
+            ProcCmd(&amp;in);
+            PrintCode(endecoder, in);
+        } else if (op == &#39;T&#39;) {
+            ProcCmd(&amp;out);
+            PrintTree(tree, out);
+        } else {
+            Print(&quot;Unknow command!&quot;); // 未知输入异常
+            continue;
+        }
+        Print(&quot;Success!&quot;);
+    }
+    return 0;
+}
+```
+</code></pre></div>
+<p>生成效果：</p>
+<p><img alt="cxx2flow" src="../img/cxx2flow.svg" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>cxx2flow仅会生成 <code>main</code> 函数的流程图，如果有多个函数的流程图需要生成，则需要编写多个包含main函数的 <code>cxx2flow</code> 代码块。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>cxx2flow生成的流程图并不能完美符合部分大学对于流程图的要求，用户需自行斟酌是否使用。</p>
+</div>
 
 
 
