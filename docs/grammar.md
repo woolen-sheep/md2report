@@ -1,6 +1,6 @@
-# 语法与特性
+# 标准语法
 
-md2report使用的都是标准markdown语法，但是markdown标记到docx的样式映射可能与你的习惯不同。
+md2report使用的大部分是标准markdown语法，但是markdown标记到docx的样式映射可能与你的习惯不同。
 按照推荐的方式使用markdown标记能生成更加规范的报告。
 
 ## 标题与副标题
@@ -90,3 +90,70 @@ md2report会将所有的图片标题转换为图片图注，并且添加支持�
 ```
 
 同样的，md2report也会为表格添加支持引用的表格编号。
+
+# 追加特性
+
+## cxx2flow
+
+md2report 集成了 [cxx2flow](https://github.com/Enter-tainer/cxx2flow)，可以将c++代码转化为流程图。
+
+````markdown
+
+```cxx2flow:流程图标题
+int main() {
+    // 初始化哈夫曼树
+    if (!FileExists("hfmTree.dat")) {
+        tree = InitHfmTree();
+    } else {
+        tree->init();
+    }
+
+    // 初始化编码/解码器
+    EnDecoder endecoder;
+    InitEnDecoder(&endecoder, tree);
+
+    // 输出帮助信息
+    PrintHelpMsg();
+    File in, out;
+    while (TRUE) {
+        // 读取用户指令，根据指令调用指定功能
+        PrintLineHeader();
+        Cmd op;
+        ReadOp(&op);
+        if (op == 'I') {
+            tree = InitHfmTree();
+        } else if (op == 'E') {
+            ProcCmd(&in, &out);
+            Encode(endecoder, in, out);
+        } else if (op == 'D') {
+            ProcCmd(&in, &out);
+            Decode(endecoder, in, out);
+        } else if (op == 'P') {
+            ProcCmd(&in);
+            PrintCode(endecoder, in);
+        } else if (op == 'T') {
+            ProcCmd(&out);
+            PrintTree(tree, out);
+        } else {
+            Print("Unknow command!"); // 未知输入异常
+            continue;
+        }
+        Print("Success!");
+    }
+    return 0;
+}
+```
+
+````
+
+生成效果：
+
+![cxx2flow](img/cxx2flow.svg)
+
+!!! note
+
+    cxx2flow仅会生成 `main` 函数的流程图，如果有多个函数的流程图需要生成，则需要编写多个包含main函数的 `cxx2flow` 代码块。
+
+!!! warning
+
+    cxx2flow生成的流程图并不能完美符合部分大学对于流程图的要求，用户需自行斟酌是否使用。
