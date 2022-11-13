@@ -1,3 +1,4 @@
+from logger import logging
 import pathlib
 from typing import Dict
 import uuid
@@ -5,11 +6,11 @@ import os
 from zipfile import ZipFile
 from tempfile import TemporaryFile
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from config.config import load_config, server_config
 
-from fastapi import Depends, FastAPI, HTTPException, UploadFile, status, APIRouter
+from fastapi import Depends, FastAPI, Form, HTTPException, UploadFile, status, APIRouter
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from celery import Celery
@@ -49,13 +50,25 @@ app.add_middleware(
 
 router = APIRouter(prefix="/api")
 
+def form_body(cls):
+    cls.__signature__ = cls.__signature__.replace(
+        parameters=[
+            arg.replace(default=Form(...))
+            for arg in cls.__signature__.parameters.values()
+        ]
+    )
+    return cls
 
+@form_body
 class CreateTaskParam(BaseModel):
     # name of template to use.
     # templates are defined in `config/config.yaml`
     template: str = "HUST"
     # if enable highlight
     highlight: bool = True
+    # if enable first line indent
+    first_line_indent: bool = True
+
 
 
 @router.get("/healthz")

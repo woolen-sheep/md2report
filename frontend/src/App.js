@@ -6,6 +6,7 @@ import urlJoin from 'url-join';
 
 function App () {
   const [highlight, setHighlight] = useState(true)
+  const [indent, setIndent] = useState(true)
   const [templateName, setTemplateName] = useState("HUST")
   const [markdownFile, setMarkdownFile] = useState(null);
   const [errorToastVisible, setErrorToastVisible] = useState(false)
@@ -24,6 +25,7 @@ function App () {
     formData.append("file", markdownFile)
     formData.append("template", templateName)
     formData.append("highlight", highlight)
+    formData.append("first_line_indent", indent)
     axios.post(config.TASKS_URL, formData)
       .then((resp) => {
         const task_id = resp.data.task_id
@@ -151,6 +153,16 @@ function App () {
                 setHighlight(value.target.checked)
               }} />
             <span className="text-xl text-primary ml-4">Code Hightlight</span>
+          </label>
+        </div>
+        <div className="col-start-4 col-end-12 place-item-center mb-8">
+          <label className="flex items-top cursor-pointer">
+            <input type="checkbox" className="checkbox checkbox-primary" style={{ "margin-top": "2px" }}
+              checked={indent}
+              onChange={(value) => {
+                setIndent(value.target.checked)
+              }} />
+            <span className="text-xl text-primary ml-4">First Line Indent</span>
           </label>
         </div>
 
