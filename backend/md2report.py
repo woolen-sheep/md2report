@@ -96,6 +96,9 @@ def convert_md_to_docx(conf: Config):
 
 
 if __name__ == "__main__":
+    print("Please give me star if this application helps you!")
+    print("如果这个应用有帮助到你，请给我点一个 star！")
+    print("https://github.com/woolen-sheep/md2report")
     p = configargparse.ArgParser()
     p.add_argument(
         "-c",
