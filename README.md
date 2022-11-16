@@ -27,8 +27,10 @@ md2report提供了CLI，如果想使用CLI，需要：
 
 - python 3.10+
 - poetry in PATH
-- pandoc in PATH
+- pandoc(version >= 2.11) in PATH
 - [Git LFS](https://git-lfs.github.com/) installed
+- [cxx2flow](https://github.com/Enter-tainer/cxx2flow)
+  - 可选，仅在使用cxx2flow功能时需要
 
 ```bash 
 git clone https://github.com/woolen-sheep/md2report.git 
