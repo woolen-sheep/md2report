@@ -15,6 +15,7 @@ IMAGE_CAPITAL_TEMPLATE = "{} "
 # be outside of A4 page. So limit it to 700px.
 MAX_SVG_HEIGHT = 700
 
+
 class Index:
     """
     For storing the section number, image number and table number
@@ -116,8 +117,6 @@ def append_abstract(elem, doc):
         return res
 
 
-
-
 def get_svg_height(filename: str) -> int:
     """
     Get the height of svg file. If the height is greater then
@@ -131,13 +130,13 @@ def get_svg_height(filename: str) -> int:
     return int(MAX_SVG_HEIGHT)
 
 
-def insert_cxx2flow_svg(code_block: pf.CodeBlock, title:str)->Union[pf.Para,None]:
+def insert_cxx2flow_svg(code_block: pf.CodeBlock, title: str) -> Union[pf.Para, None]:
     """
     all cxx2flow and dot to get the svg flow chart. Then insert
     it to the document.
     """
-    if len(title)==0:
-        title="程序流程图"
+    if len(title) == 0:
+        title = "程序流程图"
     elif title[0] == ":":
         title = title[1:]
     Index.image += 1
@@ -153,6 +152,9 @@ def insert_cxx2flow_svg(code_block: pf.CodeBlock, title:str)->Union[pf.Para,None
         stderr=PIPE,
     )
     p.communicate(input=dot_data)
+
+    if not os.path.exists(output_file):
+        return None
     # limit svg's height
     height = get_svg_height(output_file)
     img = pf.Image(
@@ -162,49 +164,53 @@ def insert_cxx2flow_svg(code_block: pf.CodeBlock, title:str)->Union[pf.Para,None
         attributes={"height": f"{height}px"},
     )
     img.walk(add_image_capition)
-    if os.path.exists(output_file):
-        return pf.Para(img)
+    return pf.Para(img)
+
 
 def process_report(elem, doc):
     """
     Traverse the JSON AST provided by pandoc, and apply
     modifications such as styles, captions, reference, etc.
     """
-    if type(elem) == pf.MetaMap:
-        meta: pf.MetaMap = cast(pf.MetaMap, elem)
-        meta.content["subtitle"].walk(append_abstract)  # type: ignore
-    elif type(elem) == pf.Image:
-        img: pf.Image = cast(pf.Image, elem)
-        Index.image += 1
-        img.walk(add_image_capition)
-        return img
-    elif type(elem) == pf.Table:
-        table: pf.Table = cast(pf.Table, elem)
-        Index.table += 1
-        number = pf.RawInline(
-            DocxTemplates.TABLE_NUMBER.format(
-                section_id=Index.get_section_id(level=1), table_id=Index.table
-            ),
-            format="openxml",
-        )
-        table.caption = pf.Caption(pf.Para(number, pf.Str(DocState.table_title)))
-        DocState.table_title = ""
-        return table
-    elif type(elem) == pf.Para:
-        elem_str: pf.Para = cast(pf.Para, elem)
-        content = pf.stringify(elem_str)
-        # store the table caption and remove it from the doc.
-        if content.startswith("#table "):
-            DocState.table_title = content[7:]
-            return pf.Para()
-    elif type(elem) == pf.Header:
-        header: pf.Header = cast(pf.Header, elem)
-        Index.add(header.level)
-    elif type(elem) == pf.CodeBlock:
-        code_block: pf.CodeBlock = cast(pf.CodeBlock, elem)
-        lang = code_block.to_json()["c"][0][1]
-        if len(lang) == 1 and lang[0].startswith("cxx2flow"):
-            return insert_cxx2flow_svg(code_block=code_block,title=lang[0][8:])
+    try:
+        if type(elem) == pf.MetaMap:
+            meta: pf.MetaMap = cast(pf.MetaMap, elem)
+            meta.content["subtitle"].walk(append_abstract)  # type: ignore
+        elif type(elem) == pf.Image:
+            img: pf.Image = cast(pf.Image, elem)
+            Index.image += 1
+            img.walk(add_image_capition)
+            return img
+        elif type(elem) == pf.Table:
+            table: pf.Table = cast(pf.Table, elem)
+            Index.table += 1
+            number = pf.RawInline(
+                DocxTemplates.TABLE_NUMBER.format(
+                    section_id=Index.get_section_id(level=1), table_id=Index.table
+                ),
+                format="openxml",
+            )
+            table.caption = pf.Caption(pf.Para(number, pf.Str(DocState.table_title)))
+            DocState.table_title = ""
+            return table
+        elif type(elem) == pf.Para:
+            elem_str: pf.Para = cast(pf.Para, elem)
+            content = pf.stringify(elem_str)
+            # store the table caption and remove it from the doc.
+            if content.startswith("#table "):
+                DocState.table_title = content[7:]
+                return pf.Para()
+        elif type(elem) == pf.Header:
+            header: pf.Header = cast(pf.Header, elem)
+            Index.add(header.level)
+        elif type(elem) == pf.CodeBlock:
+            code_block: pf.CodeBlock = cast(pf.CodeBlock, elem)
+            lang = code_block.to_json()["c"][0][1]
+            if len(lang) == 1 and lang[0].startswith("cxx2flow"):
+                return insert_cxx2flow_svg(code_block=code_block, title=lang[0][8:])
+    except Exception as e:
+        pf.debug(f"Exception in general filter: {e}")
+
 
 
 if __name__ == "__main__":
