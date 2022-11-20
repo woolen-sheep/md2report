@@ -72,13 +72,19 @@ class DocState:
     abstract_zh: str = ""
     # English abstract
     abstract_en: str = ""
+    # Flag of whether the image label is inserted.
+    # if there exists blank in the image caption
+    # there will be multiple `pf.Str`. The lable
+    # should be inserted in front of the first
+    # label.
+    image_label_inserted: bool = False
 
 
 def add_image_capition(elem, doc) -> Optional[List[pf.Inline]]:
     """
     Add image number with section number to image caption.
     """
-    if type(elem) == pf.Str:
+    if type(elem) == pf.Str and not DocState.image_label_inserted:
         elem_str: pf.Str = cast(pf.Str, elem)
         # Insert the image number with template
         number = pf.RawInline(
@@ -87,6 +93,7 @@ def add_image_capition(elem, doc) -> Optional[List[pf.Inline]]:
             ),
             format="openxml",
         )
+        DocState.image_label_inserted = True
         return [
             number,
             pf.Str(" " + elem_str.text),
@@ -163,6 +170,7 @@ def insert_cxx2flow_svg(code_block: pf.CodeBlock, title: str) -> Union[pf.Para, 
         title="fig:",
         attributes={"height": f"{height}px"},
     )
+    DocState.image_label_inserted = False
     img.walk(add_image_capition)
     return pf.Para(img)
 
@@ -179,6 +187,7 @@ def process_report(elem, doc):
         elif type(elem) == pf.Image:
             img: pf.Image = cast(pf.Image, elem)
             Index.image += 1
+            DocState.image_label_inserted = False
             img.walk(add_image_capition)
             return img
         elif type(elem) == pf.Table:
@@ -210,7 +219,6 @@ def process_report(elem, doc):
                 return insert_cxx2flow_svg(code_block=code_block, title=lang[0][8:])
     except Exception as e:
         pf.debug(f"Exception in general filter: {e}")
-
 
 
 if __name__ == "__main__":
