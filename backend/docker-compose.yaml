@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   app:
-    build: .
+    image: woolensheep/md2report:latest
     ports:
       - 8004:8000
     command: uvicorn --host 0.0.0.0 main:app --workers 4
@@ -17,7 +17,7 @@ services:
       - redis
 
   worker:
-    build: .
+    image: woolensheep/md2report:latest
     command: celery -A main.celery worker --loglevel=info
     restart: always
     environment:

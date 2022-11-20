@@ -1,3 +1,4 @@
+from re import L
 from logger import logging
 import pathlib
 from typing import Dict
@@ -10,7 +11,16 @@ from pydantic import BaseModel, Field
 
 from config.config import load_config, server_config
 
-from fastapi import Depends, FastAPI, Form, HTTPException, UploadFile, status, APIRouter
+from fastapi import (
+    Depends,
+    FastAPI,
+    Form,
+    HTTPException,
+    UploadFile,
+    status,
+    APIRouter,
+    BackgroundTasks,
+)
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from celery import Celery
@@ -50,6 +60,7 @@ app.add_middleware(
 
 router = APIRouter(prefix="/api")
 
+
 def form_body(cls):
     cls.__signature__ = cls.__signature__.replace(
         parameters=[
@@ -58,6 +69,7 @@ def form_body(cls):
         ]
     )
     return cls
+
 
 @form_body
 class CreateTaskParam(BaseModel):
@@ -68,7 +80,6 @@ class CreateTaskParam(BaseModel):
     highlight: bool = True
     # if enable first line indent
     first_line_indent: bool = True
-
 
 
 @router.get("/healthz")
@@ -138,14 +149,21 @@ def get_task_status(task_id):
     return JSONResponse({"status": task_result.status})
 
 
+def remove_task_files(task_path:str):
+    p: pathlib.Path = pathlib.Path(task_path).parent.absolute()
+    os.removedirs(p.name)
+
+
 @router.get("/tasks/{task_id}")
-def get_task_result(task_id):
+def get_task_result(task_id: str, background_tasks: BackgroundTasks):
     """
     Return the generated docx file when task is ready.
     """
     task_result: AsyncResult = celery.AsyncResult(task_id)
     if task_result.ready():
-        return FileResponse(task_result.result, filename="output.docx")
+        task_path = task_result.result
+        background_tasks.add_task(remove_task_files, task_path)
+        return FileResponse(task_path, filename="output.docx")
     raise HTTPException(
         status_code=status.HTTP_400_BAD_REQUEST, detail="task pending or not existed"
     )
