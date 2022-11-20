@@ -21,6 +21,10 @@
 
 md2report提供了[Web UI](https://md2report.hust.online), 无需安装即可使用。
 
+WebUI仅为不会使用python的用户提供便利，不能保证可用性，也不保证是最新版本。大体积文件建议使用CLI。
+
+请不要上传zip bomb，如果服务受到攻击可能考虑关闭服务。
+
 ### CLI
 
 md2report提供了CLI，如果想使用CLI，需要：
