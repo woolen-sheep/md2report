@@ -22,7 +22,7 @@ def validate_metadata(filename: str):
     reading_meta = False
     meta_str = ""
     data = ""
-    with open(filename, "r") as f:
+    with open(filename, "r", encoding="utf-8") as f:
         lines = f.readlines()
         for i, l in enumerate(lines):
             l = l.strip()
@@ -45,7 +45,7 @@ def validate_metadata(filename: str):
         meta = Metadata.parse_obj(yaml.safe_load(meta_str))
     meta_str = yaml.safe_dump(meta.dict())
     filename += ".validated.md"
-    with open(filename, "w") as f:
+    with open(filename, "w", encoding="utf-8") as f:
         f.write("\n".join(["---", meta_str, "---\n"]))
 
         f.write(data)
