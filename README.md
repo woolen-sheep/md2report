@@ -32,7 +32,6 @@ md2report提供了CLI，如果想使用CLI，需要：
 - python 3.10+
 - poetry in PATH
 - pandoc(version >= 2.11) in PATH
-- [Git LFS](https://git-lfs.github.com/) installed
 - [cxx2flow](https://github.com/Enter-tainer/cxx2flow)
   - 可选，仅在使用cxx2flow功能时需要
 
@@ -142,6 +141,8 @@ docker compose ps
 - 若使用其它Word编辑器的用户打开后发现目录为空，也可尝试手动更新目录。
 
 ## Contribute
+
+欢迎PR，欢迎feature request。
 
 在open issue之前请先阅读[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)。
 
